@@ -673,11 +673,13 @@ body {
 	float:left;
 	margin:0 5px 0 0
 }
+/*
 #content .datalist ul li p.edit > a + a {
 	color:#930909;
 	text-decoration:underline;
 	margin:0 5px 0 0
 }
+*/
 #content img.sepline {
 	width:auto;
 	float:left;
