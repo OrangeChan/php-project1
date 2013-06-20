@@ -25,15 +25,15 @@
             
             <div class='carousel_inner'>
                   <ul class='carousel_ul'>
-                <li><a class="ico1" href='/index.php/vm/index'></a></li>
+                <li><a class="ico2" href='/index.php/vm/index'></a></li>
                 <?php
 										$session_data = $this -> session -> userdata('logged_in'); 
 										if($session_data['level']==3){ ?>
-                <li><a class="ico2" href='/index.php/vm/create'></a></li>
+                <li><a class="ico1" href='/index.php/vm/create'></a></li>
                 <li><a class="ico3" href='/index.php/users/create'></a></li>
-                <li><a class="ico4" href='/index.php/users/index'></a></li>
+                <li><a class="ico5" href='/index.php/users/index'></a></li>
                 <?php } ?>
-                <li><a class="ico5" href='/index.php/changepassword/index'></a></li>
+                <li><a class="ico4" href='/index.php/changepassword/index'></a></li>
               </ul>
                 </div>
            
