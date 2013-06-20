@@ -35,6 +35,7 @@
     	<p class="inc"><?php echo htmlspecialchars($user_item['udate']) ?></p>
     	<p class="dec"><?php echo htmlspecialchars($user_item['status']) ?></p>
     	<p class="edit"><?php echo htmlspecialchars($user_item['level']); ?></p>
+    	<p class="dec"><a href="/index.php/vm/userVm/<?php echo htmlspecialchars($user_item['uid']) ?>">View Vms</a></p>
     	</li>
    
    

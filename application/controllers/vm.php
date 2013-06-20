@@ -13,12 +13,13 @@ class Vm extends MY_Controller {
 	public function index() {
 
 		if ($session_data = $this -> auth()) {
+			$uid = $session_data['id'];
 			$data['username'] = $session_data['username'];
 			$data['title'] = "虚拟机列表";
 			if($this -> authAdmin()){
 				$data['vm'] = $this -> vm_model -> get_all_vm();
 			} else {
-				$data['vm'] = $this -> getUserVM();
+				$data['vm'] = $this -> vm_model -> get_vm_by_uid($uid);
 			}
 			$data['vm'] = $this -> vm_model -> get_all_vm();
 			for($i=0; $i<sizeof($data['vm']); $i++){
@@ -43,6 +44,38 @@ class Vm extends MY_Controller {
 			redirect('login', 'refresh');
 		}
 	}
+
+public function userVm($uid){
+	if ($session_data = $this -> authAdmin()) {
+		$data['username'] = $session_data['username'];
+		$user = $this -> users_model -> get_users_by_uid($uid);
+		$data['title'] = "账号列表";
+		$data['email'] = $user['email'];
+		$data['vm'] = $this -> vm_model -> get_vm_by_uid($uid);
+			for($i=0; $i<sizeof($data['vm']); $i++){
+				$data['vm'][$i]['ip'] = array();
+				$package_record = $this -> package_model -> get_package_by_pid($data['vm'][$i]['package']);
+				$template_record = $this -> template_model -> get_template_by_tid($data['vm'][$i]['template']);
+				$data['vm'][$i]['package'] =  $package_record['package_name'];
+				$data['vm'][$i]['template'] = $template_record['template_name'];
+				$ip_record = $this -> ip_model -> get_ip_by_vmid($data['vm'][$i]['vmid']);
+				$j = 0;
+				foreach($ip_record as $ip_item){
+					
+					$data['vm'][$i]['ip'][$j] = $ip_item['ip'];
+					$j++;
+				}
+			}
+			$this -> load -> view('header', $data);
+			$this -> load -> view('vm/user_vm', $data);
+			$this -> load -> view('footer');
+		
+	} else {
+		
+		
+	}
+}
+
 /*
 	public function viewUserVm() {
 
@@ -198,18 +231,6 @@ class Vm extends MY_Controller {
 		}
 	}
 
-	private function getUserVM() {
-		if ($session_data = $this -> auth()) {
-			$uid = $session_data['id'];
-			return $this -> vm_model -> get_vm_by_uid($uid);
-		} else {
-			//If no session, redirect to login page
-			redirect('login', 'refresh');
-		}
-
-	}
-
-	
 
 	public function start($vmname) {
 
