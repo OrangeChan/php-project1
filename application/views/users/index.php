@@ -1,5 +1,4 @@
-
-				<!--Content Start-->
+<!--Content Start-->
 				<div id="content">
 					<div class="datalist">
 						<div class="heading">
@@ -11,16 +10,16 @@
 									<!--<a id="checkall"></a>-->
 								</div>
 								<p class="descripHead">
-									Username
+									用户邮箱
 								</p>
 								<p class="incHead">
-									Last Update time
+									最後更新時間
 								</p>
 								<p class="decHead">
-									Status
+									状态
 								</p>
 								<p class="editHead">
-									Level
+									等級
 								</p>
 							</li>								
 								<?php foreach ($users as $user_item){ ?>

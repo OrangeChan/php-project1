@@ -1,5 +1,4 @@
-
-    <!--Content Start-->
+<!--Content Start-->
     <div id="content">
           <div class="forms">
         <div class="heading">
@@ -13,23 +12,11 @@
         <?php echo validation_errors(); ?>
         <?php $attributes = array('class' => 'styleForm'); ?>
         <?php echo form_open('users/insert', $attributes) ?>
-<p>
-	Username<br />
-	<input type="text" name="username" class="reg" />
-</p>
-<p>
-	Password<br />
-	<input type="text" name="password" class="reg" />
-</p>
-
-	<input type="submit" name="submit" value="Submit" /> 
-
-</form>
-        	
-             
-              
-          </div>
-             
+			<p>用户邮箱<br /><input type="text" name="username" class="reg" /></p>
+			<p>密码<br /><input type="password" name="password" class="reg" /></p>
+			<input type="submit" name="submit" value="Submit" /> 
+		</form>
+        </div>     
       </div>
 
 
