@@ -11,7 +11,8 @@
 		<p>服务器名称<br /><input type="input" name="vmname" class="reg" /></p>
 		<p>服务计划<br />
 			<select name = "package">
-		<?phpforeach($package as $package_item){
+		<?php
+		foreach($package as $package_item){
 			echo "<option value='" . $package_item['pid'] . "'>" . $package_item['package_name'] . "</option>";
 		}?>
 			</select>
