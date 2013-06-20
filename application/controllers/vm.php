@@ -21,7 +21,6 @@ class Vm extends MY_Controller {
 			} else {
 				$data['vm'] = $this -> vm_model -> get_vm_by_uid($uid);
 			}
-			$data['vm'] = $this -> vm_model -> get_all_vm();
 			for($i=0; $i<sizeof($data['vm']); $i++){
 				$data['vm'][$i]['ip'] = array();
 				$package_record = $this -> package_model -> get_package_by_pid($data['vm'][$i]['package']);
@@ -299,6 +298,7 @@ public function userVm($uid){
 
 		if ($session_data = $this -> authAdmin()) {
 			$data['username'] = $session_data['username'];
+			
 			$this -> vm_model -> updateStatus($vmname);
 			$data['vm_status'] = $this -> vm_model -> get_vm_by_vmname($vmname);
 			$data['vm_status']['memory_available'] = 512 - $data['vm_status']['memory_available'] / 8 / 1024 / 1024;
@@ -308,8 +308,8 @@ public function userVm($uid){
 			$this -> load -> view('footer');
 		} else if ($session_data = $this -> auth()) {
 			$data['username'] = $session_data['username'];
-
-			$user_vm = $this -> getUserVM();
+			$uid = $session_data['id'];
+			$user_vm = $this -> vm_model -> get_vm_by_uid($uid);
 			foreach ($user_vm as $vm_item) {
 				if ($vm_item['vmname'] == $vmname) {
 					$this -> vm_model -> updateStatus($vmname);
