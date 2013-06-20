@@ -39,6 +39,7 @@
            
           </div>
             </div>
+        <!--    
         <div id="b" class="tab_content">
               <div class='carousel_container'>
             <div class='left_scroll2'><img src='/images/leftArrow.png' alt="" /></div>
@@ -58,6 +59,6 @@
             <div class='right_scroll2'><img src='/images/rightArrow.png' alt="" /></div>
           </div>
             </div>
-        <!--Tab End--> 
+        --> 
       </div>
           <img src="/images/shadow.png" class="shadow" alt="" /> </div>
