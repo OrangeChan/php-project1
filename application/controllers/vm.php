@@ -15,7 +15,7 @@ class Vm extends MY_Controller {
 		if ($session_data = $this -> auth()) {
 			$uid = $session_data['id'];
 			$data['username'] = $session_data['username'];
-			$data['title'] = "虚拟机列表";
+			$data['title'] = "服务器列表";
 			if($this -> authAdmin()){
 				$data['vm'] = $this -> vm_model -> get_all_vm();
 			} else {
@@ -142,7 +142,7 @@ public function userVm($uid){
 
 		if ($session_data = $this -> authAdmin()) {
 			$data['username'] = $session_data['username'];
-			$data['title'] = "建立虚拟机";
+			$data['title'] = "建立服务器";
 			$data['users'] = $this -> users_model -> get_all_users();
 			$data['package'] = $this -> package_model -> get_all_package();
 			$data['template'] = $this -> template_model -> get_all_template();
@@ -302,6 +302,13 @@ public function userVm($uid){
 			$this -> vm_model -> updateStatus($vmname);
 			$data['vm_status'] = $this -> vm_model -> get_vm_by_vmname($vmname);
 			$data['vm_status']['memory_available'] = 512 - $data['vm_status']['memory_available'] / 8 / 1024 / 1024;
+			
+			//fetch template and package
+			$package_record = $this -> package_model -> get_package_by_pid($data['vm_status']['package']);
+			$template_record = $this -> template_model -> get_template_by_tid($data['vm_status']['template']);
+			$data['vm_status']['package'] =  $package_record['package_name'];
+			$data['vm_status']['template'] = $template_record['template_name'];
+			
 			//$data['vm_status']['thumbnail'] = $data['vm_status']['thumbnail'];
 			$this -> load -> view('header', $data);
 			$this -> load -> view('vm/vm_status', $data);

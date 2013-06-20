@@ -23,7 +23,7 @@
 					$session_data = $this -> session -> userdata('logged_in'); 
 					if($session_data['level']==3){ ?>
 					<a href="/index.php/vm/edit/<?php echo htmlspecialchars($vm_item['vmid']); ?>"><img src="/images/editIco.png" alt="edit" /></a>
-					<a href="/index.php/vm/delete/<?php echo htmlspecialchars($vm_item['vmid']); ?>"><img src="/images/deletIco.png" alt="edit" /></a>
+					<a href="#" onClick="checkbox(<?php echo htmlspecialchars($vm_item['vmid']); ?>)"><img src="/images/deletIco.png" alt="delete" /></a>
 					<?php }?>						
 					</label>
 					</div>
@@ -47,4 +47,22 @@
 	<img src="/images/sepLine.png" alt="" class="sepline" />
 </div>
 			
-		
+<script type="text/javascript">
+function checkbox(vmid) {
+ 
+  var confirmmessage = "Are you sure you want to delete this vm?";
+  var go = "/index.php/vm/delete/"+vmid;
+  var message = "Action Was Cancelled";
+ 
+  if (confirm(confirmmessage)) {
+ 
+      window.location = go;
+ 
+  } else {
+ 
+       alert(message);
+ 
+  }
+ 
+}
+</script>
