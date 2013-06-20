@@ -4,68 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>云端控制台</title>
     <link href="/css/styles.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/font/stylesheet.css" rel="stylesheet" type="text/css" media="all" />
     <script src="http://code.jquery.com/jquery-1.4.4.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
- $(document).ready(function(){
-     $('.ddm').hover(
-	   function(){
-		 $('.ddl').slideDown();
-	   },
-	   function(){
-		 $('.ddl').slideUp();
-	   }
-	 );
- });
-</script>
-    <script type="text/javascript" src="/js/DD_roundies_0.0.2a-min.js"></script>
-    <script type="text/javascript">
-DD_roundies.addRule('#tabsPanel', '5px 5px 5px 5px', true);
-
-</script>
-    <script type="text/javascript" src="/js/script-carasoul.js"></script>
-    <script src="/js/jquery.uniform.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
-      $(function(){
-        $("input, select, button").uniform();
-      });
-    </script>
-    <link rel="stylesheet" href="/css/uniform.defaultstyle2.css" type="text/css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="/css/jquery.cleditor.css" />
-    <script type="text/javascript" src="/js/jquery.cleditor.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $("#input").cleditor(
-			{
-				width:        900, // width not including margins, borders or padding
-                height:       250, // height not including margins, borders or padding
-			}
-							 );
-      });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var scntDiv = $('#p_scents');
-        var i = $('#p_scents p').size() + 1;
-        
-        $('#addScnt').live('click', function() {
-                $('<p><input type="text" id="ip_' + i +'" size="20" name="ip[]" class="reg" /> <button id="remScnt">Remove</button></p>').appendTo(scntDiv);
-                $('#count').val(i);
-                i++;
-                
-                return false;
-        });
-        
-        $('#remScnt').live('click', function() { 
-                if( i > 2 ) {
-                        $(this).parents('p').remove();
-                        i--;
-                        $('#count').val(i-1);
-                }
-                return false;
-        });
-        });
-    </script>
     </head>
 
     <body class="bgc">
