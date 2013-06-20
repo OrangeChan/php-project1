@@ -238,9 +238,9 @@ public function userVm($uid){
 			redirect('vm/index', 'refresh');
 		} else if ($session_data = $this -> auth()) {
 
-			$user_vm = $this -> getUserVM();
+			$user_vm = $this -> vm_model -> get_vm_by_vmname($vmname);
 			foreach ($user_vm as $vm_item) {
-				if ($vm_item['vmname'] == $vmname) {
+				if ($user_vm['vmname'] == $vmname) {
 					$this -> vm_model -> powerOn($vmname);
 					redirect('vm/index', 'refresh');
 				}
@@ -259,9 +259,9 @@ public function userVm($uid){
 			redirect('vm/index', 'refresh');
 		} else if ($session_data = $this -> auth()) {
 
-			$user_vm = $this -> getUserVM();
+			$user_vm = $this -> vm_model -> get_vm_by_vmname($vmname);
 			foreach ($user_vm as $vm_item) {
-				if ($vm_item['vmname'] == $vmname) {
+				if ($user_vm['vmname'] == $vmname) {
 					$this -> vm_model -> powerOff($vmname);
 					redirect('vm/index', 'refresh');
 				}
@@ -280,9 +280,9 @@ public function userVm($uid){
 			redirect('vm/index', 'refresh');
 		} else if ($session_data = $this -> auth()) {
 
-			$user_vm = $this -> getUserVM();
+			$user_vm = $this -> vm_model -> get_vm_by_vmname($vmname);
 			foreach ($user_vm as $vm_item) {
-				if ($vm_item['vmname'] == $vmname) {
+				if ($user_vm['vmname'] == $vmname) {
 					$this -> vm_model -> reboot($vmname);
 					redirect('vm/index', 'refresh');
 				}
