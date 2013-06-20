@@ -3,7 +3,7 @@
 				<div id="content">
 					<div class="forms">
 						<div class="heading">
-							<h2><a href="/index.php/vm/index">虚拟机列表</a> >
+							<h2><a href="/index.php/vm/index">服务器列表</a> >
             <a href=""><?php echo $vm['vmname'];?></a>
             </h2>
 							<form class="search" method="get" action="#">

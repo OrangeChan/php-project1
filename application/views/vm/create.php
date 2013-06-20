@@ -14,12 +14,12 @@
         <?php $attributes = array('class' => 'styleForm'); ?>
         <?php echo form_open('vm/insert', $attributes) ?>
 <p>
-	VM Name <br />
+	服务器名称<br />
 	<input type="input" name="vmname" class="reg" />
 </p>
 
 	<p>
-	Package <br />
+	服务计划<br />
 	<select name = "package">
 	<?php
 		foreach($package as $package_item){
@@ -29,7 +29,7 @@
 	</select></p>
 	
 	<p>
-	Template <br />
+	范本<br />
 	<select name = "template">
 	<?php
 		foreach($template as $template_item){
@@ -41,7 +41,7 @@
 
 <div id="p_scents">
     <p id="p_ip_1">
-    	IP<br />
+    	IP地址<br />
     	<select name = "ip[]" id="ip_1">
     	<?php
 		foreach($ip as $ip_item){
@@ -49,11 +49,11 @@
 		}
 		?>
     	</select>
-    	<button id="addScnt">Add</button>
+    	<button id="addScnt">增加IP</button>
     </p>
 </div>
 
-	<input type="submit" name="submit" value="Submit" /> 
+	<input type="submit" name="submit" value="确认" /> 
 
 </form>
         	
