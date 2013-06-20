@@ -10,7 +10,7 @@
 <div id="admin">
       <div id="wrap">
     <div id="head">
-          <h1><a href="index.html">云端控制台<br />
+          <h1><a href="/index.php">云端控制台<br />
             <span>二代云服务器</span></a></h1>
           <ul id="menu">
           	<li><a href="#">您好 <?php echo $username; ?> !</a></li>
